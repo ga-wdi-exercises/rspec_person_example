@@ -12,6 +12,8 @@ class Person
       "Hello, my name is #{name}."
     when /italian/i
       "Ciao, mi chiamo #{name}."
+    when /spanish/i
+      "Hola me llamo #{name}."
     else
       fail ArgumentError.new("That language (#{language}) is not supported for #greeting.")
     end

@@ -35,5 +35,22 @@ describe Person do
         expect(tony.greeting).to eql("Ciao, mi chiamo Tony.")
       end
     end
+
+    context "when language is 'Spanish'" do
+      subject(:maria) { Person.new("Maria", "Spanish") }
+
+      it "should offer a greeting in Spanish" do
+        expect(maria.greeting).to eql("Hola me llamo Maria.")
+      end
+    end
+
+    context "when the language is not supported" do
+      subject(:worf) { Person.new("Worf", "Klingon") }
+
+      it "should raise an error when the language is not supported" do
+        expect{ worf.greeting }.to raise_error(ArgumentError, /not supported/)
+      end
+
+    end
   end
 end
